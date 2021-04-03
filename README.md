@@ -1,2 +1,2 @@
 Hello!
-Ez lessz a leiras.
+Ez lessz a leiras
