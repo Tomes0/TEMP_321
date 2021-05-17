@@ -3,6 +3,11 @@ CREATE TABLE myBets (
   bet varchar(2) NOT NULL,
   CONSTRAINT pk_myBets PRIMARY KEY (fullID)
 );
+CREATE TABLE myBets2 (
+  fullID varchar(8) NOT NULL,
+  bet varchar(2) NOT NULL,
+  CONSTRAINT pk_myBets PRIMARY KEY (fullID)
+);
 
 CREATE TABLE football (
   id int NOT NULL,
@@ -86,6 +91,38 @@ CREATE TABLE aktualis (
   fullID varchar(8) NOT NULL,
   CONSTRAINT pk_aktualis PRIMARY KEY (id)
 );
+
+CREATE TABLE aktualisId (
+  id int NOT NULL,
+  CONSTRAINT pk_aktualis PRIMARY KEY (id)
+);
+
+CREATE TABLE aktualisFelh (
+  felhnev varchar(30) NOT NULL,
+  CONSTRAINT pk_aktualis PRIMARY KEY (felhnev)
+);
+
+
+CREATE TABLE history (
+  id int NOT NULL,
+  felhnev varchar(30) NOT NULL,
+  meccsek varchar(30) NOT NULL,
+  tippek varchar(30) NOT NULL,
+  tet int NOT NULL,
+  odds FLOAT(4,2) NOT NULL,
+  meccsSzam int NOT NULL,
+  CONSTRAINT pk_aktualis PRIMARY KEY (id)
+);
+
+CREATE TABLE aktualisOdds (
+  odds FLOAT(5,2) NOT NULL,
+  CONSTRAINT pk_aktualis PRIMARY KEY (odds)
+);
+
+
+
+
+
 
 INSERT INTO football VALUES
 (1, 'ANGLIA: Premier League', 'Manchester City', 'Leeds', 1.33, 5.50, 8.00, 'F1'),
