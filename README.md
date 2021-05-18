@@ -1,2 +1,1 @@
-Hello!
-Ez lessz a leiras
+Május 18-ai állapot
