@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -26,6 +28,9 @@ public class merkozesController implements Initializable {
     private Label vOdds;
     @FXML
     private Label ertesito;
+    @FXML private RadioButton radiobutton1;
+    @FXML private RadioButton radiobutton2;
+    @FXML private RadioButton radiobutton3;
 
 
 
@@ -35,6 +40,12 @@ public class merkozesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         // TODO
+        ToggleGroup group = new ToggleGroup();
+        radiobutton1.setToggleGroup(group);
+        radiobutton2.setToggleGroup(group);
+        radiobutton3.setToggleGroup(group);
+
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -129,25 +140,7 @@ public class merkozesController implements Initializable {
 
 
 
-    /*@FXML
-    public void betolt()   throws SQLException {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.getConnection();
 
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet qResult = statement.executeQuery("SELECT * FROM `aktualis` WHERE id=1");
-            hCsapat.setText(qResult.getString(3));
-            vCsapat.setText(qResult.getString(4));
-            hOdds.setText(qResult.getString(5));
-            dOdds.setText(qResult.getString(6));
-            vCsapat.setText(qResult.getString(7));
-
-        }catch(Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-    }*/
 
 
 }

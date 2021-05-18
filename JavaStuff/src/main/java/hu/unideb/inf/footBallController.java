@@ -112,12 +112,10 @@ public class footBallController  implements Initializable {
         try {
             s = listView0.getSelectionModel().getSelectedItem();
             hmm=Integer.parseInt(s);
-            System.out.println(hmm);
-            //String del = "DELETE FROM aktualis";
+            //System.out.println(hmm);
             String insertTo = "INSERT INTO aktualis(id, liga, hazaiCsapat, vendegCsapat, hazaiOdds, dontetlenOdds, vendegOdds, fullID) VALUES (1, '" +
             liga.get(hmm-1) + "','" + hazaiCs.get(hmm-1) + "','"  + vendegCs.get(hmm-1) + "','" + hOdds.get(hmm-1) + "','" + dOdds.get(hmm-1) + "','" + vOdds.get(hmm-1)+ "','" + fullId.get(hmm-1) + "')";
             Statement statement = connectDB.createStatement();
-            //statement.executeUpdate(del);
             statement.executeUpdate(insertTo);
 
 

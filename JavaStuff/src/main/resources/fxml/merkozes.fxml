@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" prefHeight="384.0" prefWidth="541.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.merkozesKosar">
+<AnchorPane id="pane" prefHeight="384.0" prefWidth="541.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.merkozesController">
    <children>
       <Label id="label-small" alignment="CENTER" layoutX="84.0" layoutY="85.0" prefHeight="25.0" prefWidth="118.0" text="Hazai csapat">
          <font>
@@ -32,8 +32,6 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <CheckBox fx:id="hCheck" layoutX="134.0" layoutY="252.0" mnemonicParsing="false" onAction="#katt1" prefHeight="17.0" prefWidth="15.0" />
-      <CheckBox fx:id="vCheck" layoutX="446.0" layoutY="252.0" mnemonicParsing="false" onAction="#katt3" prefHeight="17.0" prefWidth="15.0" />
       <Button id="menu-button" layoutX="410.0" layoutY="289.0" mnemonicParsing="false" onAction="#fogadas" text="Fogadás" />
       <Button id="menu-button" fx:id="mainPage" layoutX="100.0" layoutY="289.0" mnemonicParsing="false" onAction="#backToMainPage" text="Bezárás" />
       <Label id="label-small" fx:id="ertesito" layoutX="115.0" layoutY="335.0" prefHeight="20.0" prefWidth="352.0" textAlignment="CENTER" />
@@ -47,5 +45,13 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
+      <Label id="label-small" fx:id="dOdds" alignment="CENTER" layoutX="248.0" layoutY="209.0" prefHeight="36.0" prefWidth="89.0" text="do">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radiobutton1" layoutX="135.0" layoutY="252.0" mnemonicParsing="false" onAction="#katt1" />
+      <RadioButton fx:id="radiobutton2" layoutX="285.0" layoutY="252.0" mnemonicParsing="false" onAction="#katt2" />
+      <RadioButton fx:id="radiobutton3" layoutX="445.0" layoutY="252.0" mnemonicParsing="false" onAction="#katt3" />
    </children>
 </AnchorPane>

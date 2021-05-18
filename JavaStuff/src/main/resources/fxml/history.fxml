@@ -7,23 +7,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.progController">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.historyController">
     <HBox layoutX="68.0" layoutY="143.0" prefHeight="261.0" prefWidth="584.0">
-        <ListView fx:id="listView1" prefHeight="309.0" prefWidth="157.0" stylesheets="@styles/styles.css" />
-        <ListView fx:id="listView2" prefHeight="309.0" prefWidth="139.0" />
-        <ListView fx:id="listView3" prefHeight="309.0" prefWidth="132.0" />
-        <ListView fx:id="listView4" prefHeight="309.0" prefWidth="93.0" />
-        <ListView fx:id="listView5" prefHeight="309.0" prefWidth="61.0" />
+        <ListView fx:id="listView1" onMouseClicked="#listClick" prefHeight="261.0" prefWidth="147.0" stylesheets="@styles/styles.css" />
+        <ListView fx:id="listView2" prefHeight="261.0" prefWidth="159.0" />
+        <ListView fx:id="listView3" prefHeight="261.0" prefWidth="147.0" />
+        <ListView fx:id="listView4" prefHeight="261.0" prefWidth="133.0" />
     </HBox>
-    <Label id="label-large" layoutX="207.0" layoutY="59.0" stylesheets="@styles/styles.css" text="Általad megtett tippek" />
-    <Label id="label-medium" alignment="CENTER" layoutX="112.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Sport" textAlignment="CENTER" />
-    <Label id="label-medium" alignment="CENTER" layoutX="263.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Hazai" textAlignment="CENTER" />
-    <Label id="label-medium" alignment="CENTER" layoutX="392.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Vendég" textAlignment="CENTER" />
-    <Label id="label-medium" alignment="CENTER" layoutX="519.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Tipp" textAlignment="CENTER" />
-    <Label id="label-medium" alignment="CENTER" layoutX="592.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Odds" textAlignment="CENTER" />
-    <Button id="menu-button" layoutX="68.0" layoutY="427.0" mnemonicParsing="false" onAction="#delete" stylesheets="@styles/styles.css" text="Törlés" />
+    <Label id="label-large" layoutX="278.0" layoutY="60.0" stylesheets="@styles/styles.css" text="Előzmények" />
+    <Label id="label-medium" alignment="CENTER" layoutX="96.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Sorszám" textAlignment="CENTER" />
+    <Label id="label-medium" alignment="CENTER" layoutX="251.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Meccsek" textAlignment="CENTER" />
+    <Label id="label-medium" alignment="CENTER" layoutX="425.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Tét" textAlignment="CENTER" />
+    <Label id="label-medium" alignment="CENTER" layoutX="558.0" layoutY="113.0" stylesheets="@styles/styles.css" text="Odds" textAlignment="CENTER" />
     <HBox alignment="CENTER" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="460.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Button id="menu-button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" stylesheets="@styles/styles.css" text="Főoldal">
+        <Button id="menu-button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mainPage" prefHeight="50.0" prefWidth="120.0" stylesheets="@styles/styles.css" text="Főoldal">
             <font>
                 <Font name="Candara Light" size="17.0" />
             </font>
@@ -54,6 +51,10 @@
             </font>
         </Button>
     </HBox>
-   <Button id="menu-button" layoutX="553.0" layoutY="427.0" mnemonicParsing="false" onAction="#historyPage" stylesheets="@styles/styles.css" text="Előzmény" />
-   <Button id="menu-button" layoutX="319.0" layoutY="427.0" mnemonicParsing="false" onAction="#save" stylesheets="@styles/styles.css" text="Mentés" />
+   <Button id="help-button" layoutX="663.0" layoutY="143.0" mnemonicParsing="false" onAction="#load" text="?" />
+   <Label fx:id="help" layoutX="68.0" layoutY="441.0" prefHeight="20.0" prefWidth="576.0" textAlignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
 </AnchorPane>

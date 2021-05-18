@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -24,6 +26,8 @@ public class merkozesKosar implements Initializable {
     private Label vOdds;
     @FXML
     private Label ertesito;
+    @FXML private RadioButton radiobutton1;
+    @FXML private RadioButton radiobutton2;
 
 
 
@@ -33,6 +37,11 @@ public class merkozesKosar implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         // TODO
+
+        ToggleGroup group = new ToggleGroup();
+        radiobutton1.setToggleGroup(group);
+        radiobutton2.setToggleGroup(group);
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 

@@ -28,60 +28,29 @@ public class progController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
         // TODO
-        /*DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.getConnection();
-
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet qResult = statement.executeQuery("SELECT * FROM `mybets`");
-
-            int val = 0;
-            while (qResult.next()) {
-                val++;
-                String id = qResult.getString(1);
-                ResultSet qResult2 = statement.executeQuery("SELECT * FROM `football` WHERE fullID ='" + id + "'");
-                listView1.getItems().add(qResult2.getString(2));
-                listView2.getItems().add(qResult2.getString(3));
-                listView3.getItems().add(qResult2.getString(4));
-                String bet = qResult.getString(2);
-                if(bet == "h") {
-                    listView4.getItems().add("Hazai");
-                } else if(bet == "d") {
-                    listView4.getItems().add("Döntetlen");
-                }else {
-                    listView4.getItems().add("Vendég");
-                }
-                if(bet == "h") {
-                    listView5.getItems().add(qResult2.getString(5));
-                } else if(bet == "d") {
-                    listView5.getItems().add(qResult2.getString(6));
-                }else {
-                    listView5.getItems().add(qResult2.getString(7));
-                }
-            }
-            val = 0;
-        }catch(Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }*/
-
-
+                load();
     }
 
-
+    double odds = 1.0;
     int a = 0;
     @FXML
     public void load() {
-
+        odds = 1.0;
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
+
         try {
-            a++;
+            //a++;
             if(a < 2) {
+                listView1.getItems().clear();
+                listView2.getItems().clear();
+                listView3.getItems().clear();
+                listView4.getItems().clear();
+                listView5.getItems().clear();
                 Statement statement = connectDB.createStatement();
                 ResultSet qResult = statement.executeQuery("SELECT * FROM `mybets`");
-
+                String del5 = "DELETE FROM aktualisOdds";
                 while (qResult.next()) {
                     String id = qResult.getString(1);
                     Statement statement2 = connectDB.createStatement();
@@ -92,7 +61,7 @@ public class progController  implements Initializable {
                             listView2.getItems().add(qResult2.getString(3));
                             listView3.getItems().add(qResult2.getString(4));
                             String bet = qResult.getString(2);
-                        System.out.println(bet);
+                        //System.out.println(bet);
                             if (bet.equals("h")) {
                                 listView4.getItems().add("Hazai");
                             } else if (bet.equals("d")) {
@@ -102,10 +71,13 @@ public class progController  implements Initializable {
                             }
                             if (bet.equals("h")) {
                                 listView5.getItems().add(qResult2.getString(5));
+                                odds = odds * Double.parseDouble(qResult2.getString(5));
                             } else if (bet.equals("d")) {
                                 listView5.getItems().add(qResult2.getString(6));
+                                odds = odds * Double.parseDouble(qResult2.getString(6));
                             } else {
                                 listView5.getItems().add(qResult2.getString(7));
+                                odds = odds * Double.parseDouble(qResult2.getString(7));
                             }
                         }
                 }
@@ -121,7 +93,7 @@ public class progController  implements Initializable {
                         listView2.getItems().add(qResult2.getString(3));
                         listView3.getItems().add(qResult2.getString(4));
                         String bet = qResult3.getString(2);
-                        System.out.println(bet);
+                        //System.out.println(bet);
                         if (bet.equals("h")) {
                             listView4.getItems().add("Hazai");
                         } else if (bet.equals("d")) {
@@ -131,8 +103,10 @@ public class progController  implements Initializable {
                         }
                         if (bet.equals("h")) {
                             listView5.getItems().add(qResult2.getString(5));
+                            odds = odds * Double.parseDouble(qResult2.getString(5));
                         } else if (bet.equals("v")) {
                             listView5.getItems().add(qResult2.getString(6));
+                            odds = odds * Double.parseDouble(qResult2.getString(6));
                         }
                     }
                 }
@@ -148,7 +122,7 @@ public class progController  implements Initializable {
                         listView2.getItems().add(qResult2.getString(3));
                         listView3.getItems().add(qResult2.getString(4));
                         String bet = qResult4.getString(2);
-                        System.out.println(bet);
+                        //System.out.println(bet);
                         if (bet.equals("h")) {
                             listView4.getItems().add("Hazai");
                         } else if (bet.equals("d")) {
@@ -158,10 +132,13 @@ public class progController  implements Initializable {
                         }
                         if (bet.equals("h")) {
                             listView5.getItems().add(qResult2.getString(5));
+                            odds = odds * Double.parseDouble(qResult2.getString(5));
                         } else if (bet.equals("d")) {
                             listView5.getItems().add(qResult2.getString(6));
+                            odds = odds * Double.parseDouble(qResult2.getString(6));
                         } else {
                             listView5.getItems().add(qResult2.getString(7));
+                            odds = odds * Double.parseDouble(qResult2.getString(7));
                         }
                     }
                 }
@@ -176,7 +153,7 @@ public class progController  implements Initializable {
                         listView2.getItems().add(qResult2.getString(3));
                         listView3.getItems().add(qResult2.getString(4));
                         String bet = qResult5.getString(2);
-                        System.out.println(bet);
+                        //System.out.println(bet);
                         if (bet.equals("h")) {
                             listView4.getItems().add("Hazai");
                         } else if (bet.equals("d")) {
@@ -186,10 +163,13 @@ public class progController  implements Initializable {
                         }
                         if (bet.equals("h")) {
                             listView5.getItems().add(qResult2.getString(5));
+                            odds = odds * Double.parseDouble(qResult2.getString(5));
                         } else if (bet.equals("d")) {
                             listView5.getItems().add(qResult2.getString(6));
+                            odds = odds * Double.parseDouble(qResult2.getString(6));
                         } else {
                             listView5.getItems().add(qResult2.getString(7));
+                            odds = odds * Double.parseDouble(qResult2.getString(7));
                         }
                     }
                 }
@@ -205,7 +185,7 @@ public class progController  implements Initializable {
                         listView2.getItems().add(qResult2.getString(3));
                         listView3.getItems().add(qResult2.getString(4));
                         String bet = qResult6.getString(2);
-                        System.out.println(bet);
+                        //System.out.println(bet);
                         if (bet.equals("h")) {
                             listView4.getItems().add("Hazai");
                         } else if (bet.equals("d")) {
@@ -215,14 +195,43 @@ public class progController  implements Initializable {
                         }
                         if (bet.equals("h")) {
                             listView5.getItems().add(qResult2.getString(5));
+                            odds = odds * Double.parseDouble(qResult2.getString(5));
                         } else if (bet.equals("d")) {
                             listView5.getItems().add(qResult2.getString(6));
+                            odds = odds * Double.parseDouble(qResult2.getString(6));
                         } else {
                             listView5.getItems().add(qResult2.getString(7));
+                            odds = odds * Double.parseDouble(qResult2.getString(7));
                         }
                     }
                 }
+                statement.executeUpdate(del5);
+                String insertTo = "INSERT INTO aktualisOdds( odds) VALUES ('" + odds + "')";
+                if(odds != 1.0) {
+                    statement.executeUpdate(insertTo);
+                }
             }
+        }catch(Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        //System.out.println(odds);
+    }
+
+    @FXML
+    public void historyPage(ActionEvent event) {
+
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/history.fxml"));
+            Stage historyStage = new Stage();
+            Scene scene2 = new Scene(root);
+
+            historyStage.setScene(scene2);
+            historyStage.show();
+            scene2.getStylesheets().add("/fxml/styles/styles.css");
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+
         }catch(Exception e) {
             e.printStackTrace();
             e.getCause();
@@ -323,6 +332,46 @@ public class progController  implements Initializable {
             scene2.getStylesheets().add("/fxml/styles/styles.css");
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 
+        }catch(Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    @FXML
+    public void save(ActionEvent event) {
+
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/osszeg.fxml"));
+            Stage osszegStage = new Stage();
+            Scene scene2 = new Scene(root);
+
+            osszegStage.setScene(scene2);
+            osszegStage.show();
+            scene2.getStylesheets().add("/fxml/styles/styles.css");
+            //((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+
+        }catch(Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    @FXML
+    public void delete(ActionEvent event) {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+        String del = "DELETE FROM myBets";
+        try {
+            odds = 1.0;
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(del);
+            listView1.getItems().clear();
+            listView2.getItems().clear();
+            listView3.getItems().clear();
+            listView4.getItems().clear();
+            listView5.getItems().clear();
         }catch(Exception e) {
             e.printStackTrace();
             e.getCause();

@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.iceController">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.iceController">
     <children>
         <Pane layoutX="56.0" layoutY="93.0" prefHeight="40.0" prefWidth="586.0" />
         <Button id="help-button" layoutX="627.0" layoutY="107.0" mnemonicParsing="false" onAction="#load" text="?" />
         <HBox layoutX="105.0" layoutY="107.0" prefHeight="309.0" prefWidth="509.0">
             <children>
                 <ListView fx:id="listView0" onMouseClicked="#listClick" prefHeight="309.0" prefWidth="54.0" />
-                <ListView fx:id="listView1" onMouseClicked="#listClick" prefHeight="309.0" prefWidth="145.0" />
+                <ListView fx:id="listView1" prefHeight="309.0" prefWidth="145.0" />
                 <ListView fx:id="listView2" prefHeight="309.0" prefWidth="167.0" />
                 <ListView fx:id="listView3" prefHeight="309.0" prefWidth="143.0" />
             </children>
